@@ -15,7 +15,7 @@ services:
       - -c
       - |
           yarn install
-          yarn start
+          yarn server
     volumes:
       - ./:/app
     tmpfs:
