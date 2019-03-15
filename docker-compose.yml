@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+  db:
+    image: postgres:9.6.5
+    ports: 
+      - "5432:5432"
+  server:
+    build: .
+    env_file: .env
+    environment:
+      - NODE_ENV=development
+    command:
+      - /bin/bash
+      - -c
+      - |
+          yarn install
+          yarn server
+    volumes:
+      - ./:/app
+    tmpfs:
+      - /app/node_modules:exec
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
