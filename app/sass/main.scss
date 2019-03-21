@@ -3,3 +3,19 @@ body {
   height: 100%;
   margin: 0;
 }
+
+.header {
+  text-align: center;
+}
+
+.footer {
+  text-align: center;
+}
+
+.main {
+  min-height: 300px;
+  text-align: center;
+  p {
+    margin-top: 50px;
+  }
+}
