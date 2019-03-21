@@ -22,8 +22,8 @@ module.exports = merge(baseConfig, {
   plugins: [
     // new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      title: 'React App Container',
-      template: path.join(__dirname, '/../app/index.html'),
+      title: '<title>React App Container</title>',
+      template: path.join(__dirname, '../app/index.html'),
     }),
     new webpack.DefinePlugin({
       'process.env': env,
