@@ -13,9 +13,11 @@ const env = {
 }
 
 module.exports = {
+  name: 'client',
+  target: 'web',
+  mode: 'production',
   entry: {
-    app: ['babel-polyfill', './app/src/index.js'],
-    css: './app/sass/main.scss',
+    app: ['babel-polyfill', './app/src/index.js']
   },
   output: {
     path: __dirname + '/../app/dist',

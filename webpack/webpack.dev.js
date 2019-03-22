@@ -8,12 +8,18 @@ const baseConfig = require('./webpack.config')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-
+//need to figure out css hot reloading. could not get that to work..
 const env = {
   NODE_ENV: JSON.stringify(process.env.NODE_ENV)
 }
 
 module.exports = merge(baseConfig, {
+  mode: 'development',
+  entry: [
+    'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&hot=true&quiet=true&noInfo=false', 
+    './app/src/index.js'
+  ],
+  devtool: 'eval',
   output: {
     path: '/',
     filename: '[name].build.js',
@@ -25,6 +31,7 @@ module.exports = merge(baseConfig, {
       title: 'React App Container',
       template: path.join(__dirname, '/../app/index.html'),
     }),
+    new webpack.HotModuleReplacementPlugin(),
     new webpack.DefinePlugin({
       'process.env': env,
     }),
