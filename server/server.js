@@ -31,6 +31,8 @@ if (process.env.NODE_ENV === 'development') {
     }),
   )
 
+  app.use(require("webpack-hot-middleware")(compiler));
+
   app.use('*', function(req, res, next) {
     let filename = path.join(compiler.outputPath, 'index.html')
     console.log(filename)
