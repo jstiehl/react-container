@@ -8,6 +8,8 @@ import Col from 'react-bootstrap/Col'
 import Button from 'react-bootstrap/Button'
 import ListGroup from 'react-bootstrap/ListGroup'
 
+import '../sass/main.scss'
+
 class App extends React.Component {
   render() {
     return (
